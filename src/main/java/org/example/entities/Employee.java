@@ -41,7 +41,7 @@ public class Employee {
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = this.firstName;
+        this.firstName = firstName;
     }
 
     public String getLastName() {

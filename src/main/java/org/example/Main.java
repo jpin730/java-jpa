@@ -18,9 +18,23 @@ public class Main {
         }
         System.out.println();
 
-        int employeeId = employees.get(0).getId();
-        Employee employee = entityManager.find(Employee.class, employeeId);
+        Employee newEmployee = new Employee();
+        newEmployee.setFirstName("Michael");
+        newEmployee.setLastName("Scott");
+        newEmployee.setEmail("some@email.com");
+        newEmployee.setSalary(2000.0f);
+
+        entityManager.getTransaction().begin();
+        entityManager.persist(newEmployee);
+        entityManager.getTransaction().commit();
+
+        System.out.println("New employee created:");
+        System.out.println(newEmployee);
+        System.out.println();
+
+        int employeeId = newEmployee.getId();
+        Employee foundEmployee = entityManager.find(Employee.class, employeeId);
         System.out.println("Employee with id " + employeeId);
-        System.out.println(employee);
+        System.out.println(foundEmployee);
     }
 }
