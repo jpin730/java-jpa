@@ -16,5 +16,11 @@ public class Main {
         for (Employee employee : employees) {
             System.out.println(employee);
         }
+        System.out.println();
+
+        int employeeId = employees.get(0).getId();
+        Employee employee = entityManager.find(Employee.class, employeeId);
+        System.out.println("Employee with id " + employeeId);
+        System.out.println(employee);
     }
 }
