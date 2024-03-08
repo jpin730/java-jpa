@@ -36,5 +36,13 @@ public class Main {
         Employee foundEmployee = entityManager.find(Employee.class, employeeId);
         System.out.println("Employee with id " + employeeId);
         System.out.println(foundEmployee);
+        System.out.println();
+
+        foundEmployee.setSalary(3000.0f);
+        entityManager.getTransaction().begin();
+        entityManager.merge(foundEmployee);
+        entityManager.getTransaction().commit();
+        System.out.println("Salary updated:");
+        System.out.println(foundEmployee);
     }
 }
