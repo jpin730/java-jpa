@@ -44,5 +44,13 @@ public class Main {
         entityManager.getTransaction().commit();
         System.out.println("Salary updated:");
         System.out.println(foundEmployee);
+        System.out.println();
+
+        entityManager.getTransaction().begin();
+        entityManager.remove(foundEmployee);
+        entityManager.getTransaction().commit();
+        System.out.println("Employee deleted.");
+
+        entityManager.close();
     }
 }
